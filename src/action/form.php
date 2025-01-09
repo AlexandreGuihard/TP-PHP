@@ -1,4 +1,4 @@
-<h1>Remplissez le feurmulaire</h1>
+<h1>Remplissez le formulaire</h1>
 <form action="" method="post">
     <?php
     foreach($questions as $question):?>

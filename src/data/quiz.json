@@ -1,5 +1,5 @@
 {
-    "questions":{
+    "quiz":{
         "question1":{
             "type":"radio",
             "name":"q1",
