@@ -4,35 +4,13 @@ declare(strict_types=1);
 require 'classes/AutoLoader.php';
 AutoLoader::register();
 
-use View\Template;
+use templates\Template;
 use tools\type\Text;
 use tools\type\Hidden;
 use tools\type\Checkbox;
 use tools\type\Textarea;
+use provider\JSONLoader;
 
-$form = [
-    [
-        'type' => 'text',
-        'name' => 'mytext',
-        'required' => false,
-    ],
-    [
-        'type' => 'hidden',
-        'name' => 'hiddenfield',
-        'required' => false,
-    ],
-    [
-        'type' => 'checkbox',
-        'name' => 'coucou',
-        'required' => false
-    ],
-    [
-        'type' => 'textarea',
-        'name' => 'mytextarea',
-        'required' => true,
-        'label'=> 'toto'
-    ],
-];
 
 //foreach($form as $field) {
 //    $className = "tools\\type\\".ucfirst($field['type']);
@@ -113,7 +91,6 @@ $quiz=[
         'required' => true
     ]
 ];
-
 
 function question_text($q) {
     echo ($q["text"] . "<br><input type='text' name='$q[name]'><br>");
@@ -233,9 +210,9 @@ foreach($form as $field){
     $className="tools\\type\\".ucfirst($field['type']);
     //$tmp=new $className($field['name'],$field['required']);
     //echo $tmp->render().PHP_EOL;
-    $questions.add(new$className($field['name'],$field['required']));
+    //$questions.add(new $className($field['name'],$field['required']));
 }
-$content=ob_get_clean();
+//$content=ob_get_clean();
 
 
 $action=$_REQUEST['action']??false;
@@ -254,6 +231,10 @@ $template=new Template('templates');
 $template->setLayout('main');
 $template->setContent($content);
 echo $template->compile();
+
+$jsonLoader=new JSONLoader("data/quiz.json");
+$dataArray=$jsonLoader->parseJSON();
+
 //phpinfo(INFO_VARIABLES);
 ?>
 
