@@ -19,7 +19,7 @@
                 }
             },
             "answer":"q1Ans2",
-            "score":1,
+            "score":3,
             "required":true
         },
         {
@@ -67,7 +67,7 @@
                 }
             },
             "answer":"q3Ans3",
-            "score":1,
+            "score":5,
             "required":true
         },
         {

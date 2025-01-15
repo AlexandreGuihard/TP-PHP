@@ -14,6 +14,7 @@ use quiz\Question;
 use quiz\Questions;
 use action\Answers;
 
+session_start();
 
 $jsonLoader=new JSONLoader();
 $quiz=$jsonLoader->parseJSON();
@@ -50,16 +51,9 @@ $question_handlers = array(
     "checkbox" => "question_checkbox"
 );
 
-$answer_handlers = array(
-    "text" => "answer_text",
-    "radio" => "answer_radio",
-    "checkbox" => "answer_checkbox"
-);
-
 $questions=new Questions();
 // Affichage des questions dans une liste ordonnée
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"]=="GET"){
     echo "<form method='POST' action='index.php'><ol>";
     foreach ($quiz as $q) {
         $name=$q["name"];
@@ -68,23 +62,21 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $answer = $q["answer"];
         $questionScore=$q["score"];
         $choices = [];
-
         if ($q["type"] == "radio") {
             foreach ($q["choices"] as $choice) {
                 $choices[$choice["value"]] = $choice["name"];
             }
         }
-
-        // Créez un objet Question et ajoutez-le
         $question = new Question($name, $questionName, $questionType, $answer, $choices, $questionScore);
         $questions->addQuestion($question);
-
         // Affichage de la question
         $question_handlers[$q["type"]]($q);  // Appel de la fonction pour afficher la question
     }
     echo "</ol><input type='submit' value='Envoyer'></form>";
+    $_SESSION['questions'] = $questions;
 }
-else{
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    $questions = $_SESSION['questions'];
     $answers=new Answers();
     $answers->checkAnswers($questions); 
 }
