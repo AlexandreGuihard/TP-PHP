@@ -1,0 +1,89 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh; /* Hauteur de la fenêtre */
+    color: #333;
+}
+
+/* Conteneur principal */
+main {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    height: 75vh;
+    max-width: 800px;
+    margin: auto; /* Centrage horizontal en complément */
+    overflow: hidden; /* Évite que le contenu dépasse les limites */
+}
+
+/* Formulaire */
+form {
+    display: block;
+    gap: 10px;
+    width: 100%; /* Prend toute la largeur de main */
+}
+
+form input[type="text"],
+form input[type="radio"],
+form input[type="checkbox"],
+form input[type="submit"] {
+    display: block; /* Rend les champs de formulaire en bloc */
+    width: 100%; /* Ajuste la largeur à celle du formulaire */
+    max-width: 400px; /* Limite la largeur pour garder une belle apparence */
+    padding: 8px; /* Ajout de marges internes pour un meilleur visuel */
+    box-sizing: border-box; /* Inclut les marges et les bordures dans la largeur */
+    margin: 8px auto; /* Centrage horizontal des champs */
+}
+
+/* Liste ordonnée */
+ol {
+    padding-left: 20px;
+    width: 100%; /* S'adapte à la largeur de main */
+    margin: auto; /* Centrage horizontal si nécessaire */
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+    word-wrap: break-word; /* Gère les longs titres */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    width: 100%; /* Prend toute la largeur */
+    padding-top: 10px;
+    border-top: 1px solid #ddd; /* Ajoute une séparation avec le contenu */
+}
