@@ -52,7 +52,7 @@ public function checkAnswers(Questions $quiz): void{
     $score_correct = 0;  // Initialiser le score correct
     $i = 1;
 
-    $questions=$quiz->getQuestions()
+    $questions=$quiz->getQuestions();
     foreach ($questions as $q) {
         $score_total += $q->getScore();  // Ajouter le score de la question au score total
         $userAnswer = $_POST[$q->getName()] ?? null;
