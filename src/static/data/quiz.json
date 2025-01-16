@@ -77,6 +77,14 @@
             "answer":"to",
             "score":1,
             "required":true
+        },{
+            "type": "text",
+            "name": "q8",
+            "questionName": "Capital de la France ?",
+            "answer": "Paris",
+            "score": 4,
+            "required": true
         }
+        
     ]
 }
