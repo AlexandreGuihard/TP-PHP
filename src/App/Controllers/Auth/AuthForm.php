@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 
 use App\Controllers\Auth\Users\User;
+use App\Controllers\Auth\Auth;
 
 class AuthForm {
 

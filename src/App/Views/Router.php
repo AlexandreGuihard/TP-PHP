@@ -55,6 +55,9 @@ class Router
             case 'logout':
                 self::render('auth/logout.php', 'Deconnexion', []);
                 break;
+            case 'Historique':
+                self::render('history.php', 'Historique', ['history.css']);
+                break;
 
             default:
                 self::render('404.php', 'Page introuvable', ['404.css']);

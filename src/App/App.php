@@ -2,6 +2,7 @@
 
 use Config\ConfigBD;
 use App\Database\MySQLDatabase;
+use App\Database\SQLiteDatabase;
 use App\Autoloader;
 
 class App {
